@@ -1,0 +1,25 @@
+{
+    "name": "BasisSteamTransport",
+    "rootNamespace": "",
+    "references": [
+        "BasisNetworkCore",
+        "BasisDebug"
+    ],
+    "includePlatforms": [
+        "Editor",
+        "LinuxStandalone64",
+        "macOSStandalone",
+        "WindowsStandalone64"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Facepunch.Steamworks.Win64.dll",
+        "Facepunch.Steamworks.Posix.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,31 @@
+{
+  "name": "com.basis.transport.steam",
+  "version": "0.1.0",
+  "displayName": "Basis Steam Transport",
+  "description": "Steam network transport for Basis. Adds the 'steam' network stack: players connect to a host's or a dedicated server's Steam ID (steam:<SteamID64>) over the Steam relay, with no port forwarding and no exposed IP address. Unity on Windows, Linux and macOS, and the Basis Server through the Basis Package Manager.",
+  "author": {
+    "name": "BasisVR",
+    "url": "https://github.com/BasisVR"
+  },
+  "license": "MIT",
+  "vpmDependencies": {
+    "com.basis.sdk": "0.0.1",
+    "com.basis.server": "1.0.0"
+  },
+  "basisServer": {
+    "modules": [
+      { "path": "Runtime/Shared", "assembly": "BasisNetworkCore" },
+      { "path": "Server~/BasisNetworkCore", "assembly": "BasisNetworkCore" },
+      { "path": "Server~/BasisServerTests", "assembly": "BasisServerTests" }
+    ],
+    "references": [
+      { "path": "Server~/Plugins/Facepunch.Steamworks.Win64.dll", "assembly": "BasisNetworkCore", "platforms": ["win"] },
+      { "path": "Server~/Plugins/Facepunch.Steamworks.Posix.dll", "assembly": "BasisNetworkCore", "platforms": ["linux", "osx"] }
+    ],
+    "natives": [
+      { "path": "Plugins/Facepunch.Steamworks/redistributable_bin/win64/steam_api64.dll", "assembly": "BasisNetworkCore", "platforms": ["win-x64"] },
+      { "path": "Plugins/Facepunch.Steamworks/redistributable_bin/linux64/libsteam_api.so", "assembly": "BasisNetworkCore", "platforms": ["linux-x64"] },
+      { "path": "Plugins/Facepunch.Steamworks/redistributable_bin/osx/libsteam_api.dylib", "assembly": "BasisNetworkCore", "platforms": ["osx"] }
+    ]
+  }
+}
