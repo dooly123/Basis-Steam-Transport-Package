@@ -41,6 +41,7 @@ namespace Basis.Network.Steam
         }
         public NetDataReader Data { get; }
         public IPEndPoint RemoteEndPoint { get; }
+        public string VerifiedIdentity => pending.SteamId == 0 ? null : BasisSteamTransport.IdentityPrefix + pending.SteamId.ToString(CultureInfo.InvariantCulture);
         public NetPeer Accept()
         {
             return owner.Accept(pending);

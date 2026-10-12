@@ -6,9 +6,12 @@ namespace Basis.Network.Steam
     {
         public const string StackId = "steam";
         public const string DisplayName = "Steam";
+        public const string IdentityPrefix = "steam:";
+        public const string IdentityProviderId = "steam";
         public static void Register()
         {
             BasisNetworkStackRegistry.Register(StackId, DisplayName, (listener, configuration) => new BasisSteamNetManager(listener, configuration));
+            BasisNetworkStackRegistry.RegisterIdentityProvider(StackId, IdentityProviderId);
             BasisNetworkStackRegistry.RegisterParser(StackId, new BasisSteamConnectionTargetParser());
             BasisNetworkStackRegistry.RegisterProbe(StackId, BasisSteamProbe.ProbeAsync);
             BasisNetworkStackRegistry.RegisterAddressMatcher(StackId, BasisSteamConnectionTargetParser.IsSteamAddress);
