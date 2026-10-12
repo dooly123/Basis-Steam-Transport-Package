@@ -24,6 +24,7 @@ namespace Basis.Network.Steam
             BasisSteamHost.ClaimThread();
             BasisSteamHost.Attach("client", null, EnsureInitialized, () => SteamClient.IsValid, () => SteamClient.SteamId.Value, () => SteamClient.IsValid && SteamClient.IsLoggedOn);
             BasisSteamTransport.Register();
+            BasisPlayerIdentityRegistry.Register(new BasisSteamIdentityProvider());
             BasisNetworkStackRegistry.RegisterPump(Pump);
             Application.quitting -= Shutdown;
             Application.quitting += Shutdown;
